@@ -31,13 +31,13 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-[4.5rem] lg:px-10">
-        <Link href="#hero" aria-label="Taccxi inicio">
+        <Link href="#hero" aria-label="Taccxi inicio" className="block h-full py-0.5">
           <Image
             src="/brand/logos/LOGO-TACCXI-blanco-con%20negro.png"
             alt="Taccxi"
-            width={140}
-            height={36}
-            className="h-7 w-auto lg:h-8"
+            width={200}
+            height={60}
+            className="h-full w-auto object-contain"
             priority
           />
         </Link>
