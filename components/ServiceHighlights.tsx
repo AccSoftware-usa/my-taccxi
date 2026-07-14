@@ -74,7 +74,7 @@ export function ServiceHighlights() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, amount: 0.2 }}
         className="grid gap-8 md:grid-cols-3"
       >
         {highlights.map((item) => {

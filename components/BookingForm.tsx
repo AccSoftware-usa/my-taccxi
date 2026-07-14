@@ -14,7 +14,7 @@ type FieldProps = {
   type?: string;
 };
 
-function UnderlineField({
+function FormField({
   id,
   label,
   value,
@@ -22,13 +22,11 @@ function UnderlineField({
   placeholder,
   type = "text",
 }: FieldProps) {
-  const [focused, setFocused] = useState(false);
-
   return (
     <div>
       <label
         htmlFor={id}
-        className="mb-3 block font-heading text-xs font-bold uppercase tracking-[0.15em] text-taccxi-gray-100"
+        className="mb-2 block font-heading text-xs font-bold uppercase tracking-[0.15em] text-taccxi-gray-100"
       >
         {label}
       </label>
@@ -38,16 +36,8 @@ function UnderlineField({
         required
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
         placeholder={placeholder}
-        className="w-full bg-transparent pb-3 font-body text-base text-taccxi-dark-100 placeholder:text-taccxi-gray-200 focus:outline-none"
-      />
-      <div
-        className={cn(
-          "h-px w-full transition-all duration-300",
-          focused ? "bg-taccxi-red" : "bg-taccxi-gray-200"
-        )}
+        className="w-full rounded-xl border border-taccxi-gray-200/50 bg-taccxi-surface/30 px-4 py-3.5 font-body text-base text-taccxi-dark-100 placeholder:text-taccxi-gray-200 outline-none transition-all duration-300 focus:border-taccxi-gray-100 focus:bg-taccxi-white focus:ring-4 focus:ring-taccxi-gray-200/30"
       />
     </div>
   );
@@ -61,20 +51,18 @@ type SelectFieldProps = {
   options: { value: string; label: string }[];
 };
 
-function UnderlineSelect({
+function SelectField({
   id,
   label,
   value,
   onChange,
   options,
 }: SelectFieldProps) {
-  const [focused, setFocused] = useState(false);
-
   return (
     <div>
       <label
         htmlFor={id}
-        className="mb-3 block font-heading text-xs font-bold uppercase tracking-[0.15em] text-taccxi-gray-100"
+        className="mb-2 block font-heading text-xs font-bold uppercase tracking-[0.15em] text-taccxi-gray-100"
       >
         {label}
       </label>
@@ -83,9 +71,7 @@ function UnderlineSelect({
         required
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        className="w-full appearance-none bg-transparent pb-3 font-body text-base text-taccxi-dark-100 focus:outline-none"
+        className="w-full appearance-none rounded-xl border border-taccxi-gray-200/50 bg-taccxi-surface/30 px-4 py-3.5 font-body text-base text-taccxi-dark-100 outline-none transition-all duration-300 focus:border-taccxi-gray-100 focus:bg-taccxi-white focus:ring-4 focus:ring-taccxi-gray-200/30"
       >
         <option value="" disabled className="text-gray-400">
           Selecciona tu vehículo
@@ -96,12 +82,6 @@ function UnderlineSelect({
           </option>
         ))}
       </select>
-      <div
-        className={cn(
-          "h-px w-full transition-all duration-300",
-          focused ? "bg-taccxi-red" : "bg-taccxi-gray-200"
-        )}
-      />
     </div>
   );
 }
@@ -129,7 +109,13 @@ export function BookingForm() {
   };
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="mx-auto max-w-2xl"
+    >
       <div className="rounded-3xl border border-black/5 bg-taccxi-white p-8 shadow-sm lg:p-12">
         <p className="font-body text-sm uppercase tracking-[0.2em] text-taccxi-red">
           Reserva
@@ -141,8 +127,8 @@ export function BookingForm() {
           Completa los datos de tu viaje. Confirmaremos tu reserva de inmediato.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-10 space-y-8">
-          <UnderlineSelect
+        <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+          <SelectField
             id="carType"
             label="Tipo de vehículo"
             value={carType}
@@ -153,14 +139,14 @@ export function BookingForm() {
               { value: "Van Ejecutiva", label: "Van Ejecutiva" },
             ]}
           />
-          <UnderlineField
+          <FormField
             id="pickup"
             label="Punto de recogida"
             value={pickup}
             onChange={setPickup}
             placeholder="¿Dónde te recogemos?"
           />
-          <UnderlineField
+          <FormField
             id="destination"
             label="Dirección de destino"
             value={destination}
@@ -168,15 +154,15 @@ export function BookingForm() {
             placeholder="¿A dónde vas?"
           />
 
-          <div className="grid gap-8 sm:grid-cols-2">
-            <UnderlineField
+          <div className="grid gap-6 sm:grid-cols-2">
+            <FormField
               id="date"
               label="Fecha"
               type="date"
               value={date}
               onChange={setDate}
             />
-            <UnderlineField
+            <FormField
               id="time"
               label="Hora"
               type="time"
@@ -220,6 +206,6 @@ export function BookingForm() {
           </AnimatePresence>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }

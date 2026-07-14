@@ -6,11 +6,13 @@ import { ServiceHighlights } from "@/components/ServiceHighlights";
 import { CoverageSection } from "@/components/CoverageSection";
 import { Testimonials } from "@/components/Testimonials";
 import { Footer } from "@/components/Footer";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
+      <FloatingWhatsApp />
       <main className="bg-taccxi-white text-taccxi-dark-100">
         <Hero />
         <Features />
