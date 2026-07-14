@@ -56,13 +56,17 @@ export function FleetShowcase() {
               key={vehicle.title}
               className="group flex flex-col rounded-2xl border border-transparent p-3 transition-all duration-300 hover:-translate-y-2 hover:bg-taccxi-dark-200 hover:shadow-2xl hover:shadow-black/50"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-taccxi-dark-300">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-taccxi-dark-300 animate-pulse">
                 <Image
                   src={vehicle.image}
                   alt={vehicle.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  onLoad={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.parentElement?.classList.remove('animate-pulse');
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
               </div>
@@ -74,7 +78,7 @@ export function FleetShowcase() {
                 <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight text-taccxi-white">
                   {vehicle.title}
                 </h3>
-                <p className="mt-3 mb-6 font-body text-sm leading-relaxed text-taccxi-gray-200">
+                <p className="mt-3 mb-6 font-body text-sm leading-relaxed text-gray-400">
                   {vehicle.description}
                 </p>
                 <div className="mt-auto">

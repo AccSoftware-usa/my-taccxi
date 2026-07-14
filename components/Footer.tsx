@@ -19,7 +19,7 @@ export function Footer() {
             height={32}
             className="h-7 w-auto opacity-95"
           />
-          <p className="mt-6 max-w-sm font-body text-sm leading-relaxed text-taccxi-gray-200">
+          <p className="mt-6 max-w-sm font-body text-sm leading-relaxed text-gray-400">
             © {new Date().getFullYear()} Taccxi. Todos los derechos reservados.
           </p>
           <nav className="mt-6 flex flex-wrap gap-x-6 gap-y-2" aria-label="Legal">
@@ -27,7 +27,7 @@ export function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-body text-xs text-taccxi-gray-200 transition-colors hover:text-taccxi-white"
+                className="font-body text-xs text-gray-400 transition-colors hover:text-taccxi-white"
               >
                 {link.label}
               </a>
@@ -39,16 +39,17 @@ export function Footer() {
           <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-taccxi-white">
             Comunícate con nosotros
           </p>
-          <p className="mt-3 font-body text-sm text-taccxi-gray-200">
+          <p className="mt-3 font-body text-sm text-gray-400">
             Soporte y atención directa para tu reserva.
           </p>
           <a
             href={buildWhatsAppContactUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex font-body text-sm text-taccxi-red transition-opacity hover:opacity-80"
+            className="group mt-4 inline-flex items-center font-body text-sm text-taccxi-red transition-opacity hover:opacity-80"
           >
-            Contactar por WhatsApp →
+            Contactar por WhatsApp
+            <span className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>
