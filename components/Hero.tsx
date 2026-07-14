@@ -6,7 +6,7 @@ import { FleetShowcase } from "@/components/FleetShowcase";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { cn } from "@/lib/utils";
 
-const headline = "ROAD TO DREAMS";
+const headline = "Road to Dreams";
 
 export function Hero() {
   return (
@@ -14,11 +14,12 @@ export function Hero() {
       <div className="relative px-6 pb-12 pt-28 text-center lg:pb-16 lg:pt-36 flex flex-col justify-center min-h-[90vh]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/brand/banner1.jpg"
-            alt="Taccxi Banner"
+            src="/brand/bannerHome.gif"
+            alt="Taccxi Banner Animado"
             fill
             className="object-cover object-center"
             priority
+            unoptimized={true}
           />
           <div className="absolute inset-0 bg-black/70" />
         </div>
@@ -34,11 +35,11 @@ export function Hero() {
           </motion.p>
 
           <h1
-            className="mt-8 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-taccxi-white sm:text-6xl lg:text-7xl"
+            className="mt-8 font-signature text-5xl leading-[1.05] text-taccxi-white sm:text-7xl lg:text-8xl"
             aria-label={headline}
           >
             {headline.split("").map((char, index) => {
-              const isDreams = index >= headline.indexOf("DREAMS");
+              const isDreams = index >= headline.indexOf("Dreams");
               return (
                 <motion.span
                   key={`${char}-${index}`}

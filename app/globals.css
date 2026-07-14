@@ -15,6 +15,7 @@
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
+  --font-signature: var(--font-signature);
 }
 
 html {

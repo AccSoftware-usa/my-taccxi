@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Alegreya_Sans, Didact_Gothic } from "next/font/google";
+import localFont from "next/font/local";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import "./globals.css";
+
+const photographSignature = localFont({
+  src: "../public/brand/Photograph Signature.ttf",
+  variable: "--font-signature",
+});
 
 const didactGothic = Didact_Gothic({
   subsets: ["latin"],
@@ -25,7 +31,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${alegreyaSans.variable} ${didactGothic.variable} h-full`}>
+    <html lang="es" className={`${alegreyaSans.variable} ${didactGothic.variable} ${photographSignature.variable} h-full`}>
       <body className="min-h-full font-body antialiased">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
