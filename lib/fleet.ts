@@ -34,7 +34,7 @@ export const VEHICLES: Vehicle[] = [
     shortLabel: "SUV",
     description:
       "Experimenta el máximo nivel de confort. Perfecta para viajes ejecutivos, traslados al aeropuerto o simplemente viajar con mayor amplitud y lujo.",
-    image: "/brand/SuvPremium.jpg",
+    image: "/brand/SuvPremium.png",
     alt: "Vehículo SUV premium",
     passengers: 4,
     luggage: 4,

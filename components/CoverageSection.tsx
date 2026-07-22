@@ -8,7 +8,7 @@ const CoverageMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="aspect-[4/3] w-full animate-pulse rounded-3xl bg-taccxi-dark-300" />
+      <div className="aspect-[4/3] w-full animate-pulse rounded-3xl bg-[#dce3ea]" />
     ),
   }
 );
@@ -32,7 +32,7 @@ export function CoverageSection() {
               Área de <span className="text-taccxi-gray-200">Cobertura</span>
             </h2>
             <p className="mt-6 font-body text-base leading-relaxed text-gray-300 sm:text-lg">
-              Mapa en vivo de nuestras zonas activas. Pasa el cursor sobre cada punto para ver tiempos promedio de recogida en tu área.
+              Mapa en vivo de nuestras zonas activas en el sur de Florida: Miami, Pompano Beach, West Palm Beach, Tampa y más. Pasa el cursor sobre cada punto para ver tiempos promedio de recogida.
             </p>
           </motion.div>
 
