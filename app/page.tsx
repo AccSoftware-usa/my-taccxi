@@ -19,16 +19,14 @@ export default function HomePage() {
         <Hero />
         <LiveTicker />
         <Features />
-        <section id="reserva" className="bg-taccxi-surface px-6 py-24 lg:py-32">
+        <section className="bg-taccxi-surface px-6 py-24 lg:py-32">
           <div className="mx-auto max-w-7xl">
-            <BookingForm />
-            <div className="mt-28 lg:mt-32">
-              <ServiceHighlights />
-            </div>
+            <ServiceHighlights />
           </div>
         </section>
         <CoverageSection />
         <Testimonials />
+        <BookingForm />
         <Footer />
       </main>
     </BookingProvider>

@@ -63,14 +63,22 @@ export function VehiclePreview() {
         </div>
 
         <div className="space-y-2 p-4 font-body text-sm">
-          <p className="truncate text-white/90">
-            <span className="text-white/40">Desde </span>
-            {booking.pickup || "Ingresa origen"}
-          </p>
-          <p className="truncate text-white/90">
-            <span className="text-white/40">Hasta </span>
-            {booking.destination || "Ingresa destino"}
-          </p>
+          {(booking.pickup || booking.destination) && (
+            <>
+              {booking.pickup && (
+                <p className="truncate text-white/90">
+                  <span className="text-white/40">Desde </span>
+                  {booking.pickup}
+                </p>
+              )}
+              {booking.destination && (
+                <p className="truncate text-white/90">
+                  <span className="text-white/40">Hasta </span>
+                  {booking.destination}
+                </p>
+              )}
+            </>
+          )}
           {(formattedDate || booking.time) && (
             <div className="mt-2 flex flex-wrap gap-3 text-xs text-white/70">
               {formattedDate && (

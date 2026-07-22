@@ -51,7 +51,7 @@ export function QuickBookingWidget() {
       className="rounded-2xl border border-white/15 bg-black/40 p-5 shadow-2xl backdrop-blur-md sm:p-6"
       aria-label="Formulario de reserva rápida"
     >
-      <p className="font-body text-xs uppercase tracking-[0.25em] text-taccxi-red">
+      <p className="font-body text-xs font-bold uppercase tracking-[0.25em] text-white">
         Reserva instantánea
       </p>
       <p className="mt-1 font-body text-xs text-white/50">
