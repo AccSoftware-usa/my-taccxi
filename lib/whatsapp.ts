@@ -15,7 +15,7 @@ export function buildWhatsAppBookingUrl({
 }: BookingPayload): string {
   const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "521234567890";
   const text = encodeURIComponent(
-    `Hola, quiero reservar un viaje con Taccxi.\n\nTipo de vehículo: ${carType}\nRecogida: ${pickup}\nDestino: ${destination}\nFecha: ${date}\nHora: ${time}`
+    `Hola, quiero reservar un viaje con Taccxi.\n\nTipo de vehículo: ${carType}\nRecogida: ${pickup}\nDestino: ${destination}\nFecha: ${date}\nHora: ${time}\n\nQuedo atento a la confirmación de tarifa.`
   );
   return `https://wa.me/${phone}?text=${text}`;
 }
